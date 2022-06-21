@@ -26,10 +26,10 @@ export default function Home() {
           <div className="row">
             <div className="col-lg-12 text-center">
               <div className="breadcrumb-text">
-                <h2>Services</h2>
+                <h2></h2>
                 <div className="bt-option">
-                  <a href="./index.html">Home</a>
-                  <span>Services</span>
+                  {/* <a href="./index.html">Home</a>
+                  <span>Services</span> */}
                 </div>
               </div>
             </div>

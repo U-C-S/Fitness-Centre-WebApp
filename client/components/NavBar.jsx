@@ -17,7 +17,7 @@ export default function NavBar() {
               <a href="/">Home</a>
             </li>
             <li>
-              <a href="./contact.html">Contact</a>
+              <a href="./contact">Contact</a>
             </li>
           </ul>
         </nav>
@@ -54,10 +54,10 @@ export default function NavBar() {
               <nav className="nav-menu">
                 <ul>
                   <li>
-                    <a href="./index.html">Home</a>
+                    <a href="./">Home</a>
                   </li>
                   <li>
-                    <a href="./contact.html">Contact</a>
+                    <a href="./contact">Contact</a>
                   </li>
                 </ul>
               </nav>

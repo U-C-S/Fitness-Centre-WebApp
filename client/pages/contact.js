@@ -28,9 +28,9 @@ export default function contact() {
               <div className="breadcrumb-text">
                 <h2>Contact Us</h2>
                 <div className="bt-option">
-                  <a href="./index.html">Home</a>
+                  {/* <a href="./index.html">Home</a>
                   <a href="#">Pages</a>
-                  <span>Contact us</span>
+                  <span>Contact us</span> */}
                 </div>
               </div>
             </div>
