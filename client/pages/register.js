@@ -9,13 +9,28 @@ export default function register() {
       </Head>
       <form action="/">
   <div class="container">
-    <h1>Register</h1>
+    <h1>REGISTER!</h1>
     <p>Please fill in this form to create an account.</p>
     <hr/>
+    <label for="name"><b>Name</b></label>
+    <input type="text" placeholder="Enter Full name" name="myname" id="name" required/>
 
+    <div>
+    <label for="mob"><b>Mobile Number</b></label>
+    <input type="text" placeholder="Enter mob number" name="mobile" id="mob" required/>
+   
+    <label for="height"><b>Height</b></label>
+    <input type="text" placeholder="Enter Height" name="high" id="height" required/>
+
+    <label for="age"><b>Age</b></label>
+    <input type="text" placeholder="Enter Age" name="Age" id="age" required/>
+
+    <label for="weight"><b>Weight</b></label>
+    <input type="text" placeholder="Enter weight" name="weigh" id="weight" required/>
+    </div>
     <label for="email"><b>Email</b></label>
     <input type="text" placeholder="Enter Email" name="email" id="email" required/>
-
+    
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" id="psw" required/>
 
