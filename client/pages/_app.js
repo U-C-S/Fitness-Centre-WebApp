@@ -11,7 +11,7 @@ export default function App(props) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
 
-        <meta charset="UTF-8" />
+        <meta charSet="UTF-8" />
         <meta name="description" content="Gym Template" />
         <meta name="keywords" content="Gym, unica, creative, html" />
         <link
