@@ -60,7 +60,7 @@ export default function NavBar() {
                     <a href="./contact">Contact</a>
                   </li>
                   <li>
-                    <a href="./register">Register</a>
+                    <a href="#">Login</a>
                   </li>
                 </ul>
               </nav>

@@ -1,3 +1,4 @@
+import { MantineProvider } from "@mantine/core";
 import Head from "next/head";
 
 export default function App(props) {
@@ -48,7 +49,16 @@ export default function App(props) {
         <script src="js/owl.carousel.min.js" defer></script>
       </Head>
 
-      <Component {...pageProps} />
+      <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
+        theme={{
+          /** Put your mantine theme override here */
+          colorScheme: "dark",
+        }}
+      >
+        <Component {...pageProps} />
+      </MantineProvider>
     </>
   );
 }

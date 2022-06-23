@@ -1,10 +1,15 @@
 import Head from "next/head";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
+import { RegisterFormDrawer } from "../components/RegisterForm";
+import { useState } from "react";
 
 export default function Home() {
+  const [opened, setOpened] = useState(false);
+
   return (
     <>
+      <RegisterFormDrawer opened={opened} setOpened={setOpened} />
       <Head>
         <title>Gym | Home</title>
         <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -163,7 +168,11 @@ export default function Home() {
                   <li>Month to mouth</li>
                   <li>No time restriction</li>
                 </ul>
-                <a href="#" className="primary-btn pricing-btn">
+                <a
+                  href="#"
+                  className="primary-btn pricing-btn"
+                  onClick={() => setOpened(true)}
+                >
                   Enroll now
                 </a>
                 <a href="#" className="thumb-icon">
