@@ -14,9 +14,8 @@ function Footer() {
                   </a>
                 </div>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore dolore magna aliqua
-                  endisse ultrices gravida lorem.
+                  A place where you can be fit and shape yourself.<br></br>
+                  Now or Never.
                 </p>
                 <div className="fa-social">
                   <a href="#">
