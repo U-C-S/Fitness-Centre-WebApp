@@ -1,34 +1,26 @@
 import Head from "next/head";
+import Script from "next/script";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import { Plan } from "../components/Plans";
 
 export default function Home() {
-
 	return (
 		<>
 			<Head>
 				<title>Gym | Home</title>
-				<link rel="stylesheet" href="css/style.css" type="text/css" />
-				<script src="js/main.js" defer></script>
 			</Head>
-
-			<div id="preloder">
-				<div className="loader"></div>
-			</div>
 
 			<NavBar />
 
-			<section className="breadcrumb-section set-bg" data-setbg="img/breadcrumb-bg.jpg">
+			<section
+				className="breadcrumb-section set-bg"
+				style={{ backgroundImage: 'url("img/breadcrumb-bg.jpg")' }}>
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-12 text-center">
 							<div className="breadcrumb-text">
 								<h2></h2>
-								<div className="bt-option">
-									{/* <a href="./index.html">Home</a>
-                  <span>Services</span> */}
-								</div>
 							</div>
 						</div>
 					</div>
@@ -207,5 +199,4 @@ let PlansData = [
 			"No time restriction",
 		],
 	},
-	
 ];

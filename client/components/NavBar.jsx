@@ -1,4 +1,5 @@
 import { Modal } from "@mantine/core";
+import Link from "next/link";
 import React from "react";
 import { LoginForm } from "./LoginForm";
 
@@ -58,13 +59,19 @@ export default function NavBar() {
 							<nav className="nav-menu">
 								<ul>
 									<li>
-										<a href="./">Home</a>
+										<Link href="/">
+											<a>Home</a>
+										</Link>
 									</li>
 									<li>
-										<a href="./contact">Contact</a>
+										<Link href="/contact">
+											<a>Contact</a>
+										</Link>
 									</li>
 									<li>
-										<a href="./about">About us</a>
+										<Link href="/about">
+											<a>About us</a>
+										</Link>
 									</li>
 									<li>
 										<a href="#" onClick={() => setIsOpen(true)}>
