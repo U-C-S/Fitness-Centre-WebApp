@@ -76,10 +76,13 @@ export default function contact() {
 					</div>
 					<div className="map">
 						<iframe
-							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12087.069761554938!2d-74.2175599360452!3d40.767139456514954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c254b5958982c3%3A0xb6ab3931055a2612!2sEast%20Orange%2C%20NJ%2C%20USA!5e0!3m2!1sen!2sbd!4v1581710470843!5m2!1sen!2sbd"
-							height="550"
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124738.44715984896!2d76.56564906167095!3d12.310636832205374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf70381d572ef9%3A0x2b89ece8c0f8396d!2sMysuru%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sbd!4v1656231032561!5m2!1sen!2sbd"
+							width="600"
+							height="450"
 							style={{ border: 0 }}
-							allowfullscreen=""></iframe>
+							allowfullscreen=""
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"></iframe>
 					</div>
 				</div>
 			</section>
