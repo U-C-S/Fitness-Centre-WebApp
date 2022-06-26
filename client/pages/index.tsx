@@ -1,9 +1,7 @@
 import Head from "next/head";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
-import { RegisterFormDrawer } from "../components/RegisterForm";
 import { Plan } from "../components/Plans";
-import { useState } from "react";
 
 export default function Home() {
 
@@ -123,14 +121,14 @@ export default function Home() {
 							featureList={PlansData[0].featureList}
 						/>
 						<Plan
-							name={PlansData[0].name}
-							price={PlansData[0].price}
-							featureList={PlansData[0].featureList}
+							name={PlansData[1].name}
+							price={PlansData[1].price}
+							featureList={PlansData[1].featureList}
 						/>
 						<Plan
-							name={PlansData[0].name}
-							price={PlansData[0].price}
-							featureList={PlansData[0].featureList}
+							name={PlansData[2].name}
+							price={PlansData[2].price}
+							featureList={PlansData[2].featureList}
 						/>
 					</div>
 				</div>
@@ -174,8 +172,32 @@ export default function Home() {
 
 let PlansData = [
 	{
-		name: "6 Month Unlimited",
+		name: "Single class",
 		price: "₹3000.0",
+		featureList: [
+			"Free riding",
+			"Unlimited equipments",
+			"Personal trainer",
+			"Weight losing classes",
+			"Month to mouth",
+			"No time restriction",
+		],
+	},
+	{
+		name: " 12 Month Unlimited",
+		price: "₹7000.0",
+		featureList: [
+			"Free riding",
+			"Unlimited equipments",
+			"Personal trainer",
+			"Weight losing classes",
+			"Month to mouth",
+			"No time restriction",
+		],
+	},
+	{
+		name: "6 Month Unlimited",
+		price: "₹5000.0",
 		featureList: [
 			"Free riding",
 			"Unlimited equipments",
