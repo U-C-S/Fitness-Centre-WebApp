@@ -2,14 +2,13 @@ import Head from "next/head";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import { RegisterFormDrawer } from "../components/RegisterForm";
+import { Plan } from "../components/Plans";
 import { useState } from "react";
 
 export default function Home() {
-	const [opened, setOpened] = useState(false);
 
 	return (
 		<>
-			<RegisterFormDrawer opened={opened} setOpened={setOpened} />
 			<Head>
 				<title>Gym | Home</title>
 				<link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -118,75 +117,21 @@ export default function Home() {
 						</div>
 					</div>
 					<div className="row justify-content-center">
-						<div className="col-lg-4 col-md-8">
-							<div className="ps-item">
-								<h3>Class drop-in</h3>
-								<div className="pi-price">
-									<h2>$ 39.0</h2>
-									<span>SINGLE CLASS</span>
-								</div>
-								<ul>
-									<li>Free riding</li>
-									<li>Unlimited equipments</li>
-									<li>Personal trainer</li>
-									<li>Weight losing classes</li>
-									<li>Month to mouth</li>
-									<li>No time restriction</li>
-								</ul>
-								<a href="#" className="primary-btn pricing-btn">
-									Enroll now
-								</a>
-								<a href="#" className="thumb-icon">
-									<i className="fa fa-picture-o"></i>
-								</a>
-							</div>
-						</div>
-						<div className="col-lg-4 col-md-8">
-							<div className="ps-item">
-								<h3>12 Month unlimited</h3>
-								<div className="pi-price">
-									<h2>$ 99.0</h2>
-									<span>SINGLE CLASS</span>
-								</div>
-								<ul>
-									<li>Free riding</li>
-									<li>Unlimited equipments</li>
-									<li>Personal trainer</li>
-									<li>Weight losing classes</li>
-									<li>Month to mouth</li>
-									<li>No time restriction</li>
-								</ul>
-								<a href="#" className="primary-btn pricing-btn" onClick={() => setOpened(true)}>
-									Enroll now
-								</a>
-								<a href="#" className="thumb-icon">
-									<i className="fa fa-picture-o"></i>
-								</a>
-							</div>
-						</div>
-						<div className="col-lg-4 col-md-8">
-							<div className="ps-item">
-								<h3>6 Month unlimited</h3>
-								<div className="pi-price">
-									<h2>$ 59.0</h2>
-									<span>SINGLE CLASS</span>
-								</div>
-								<ul>
-									<li>Free riding</li>
-									<li>Unlimited equipments</li>
-									<li>Personal trainer</li>
-									<li>Weight losing classes</li>
-									<li>Month to mouth</li>
-									<li>No time restriction</li>
-								</ul>
-								<a href="#" className="primary-btn pricing-btn">
-									Enroll now
-								</a>
-								<a href="#" className="thumb-icon">
-									<i className="fa fa-picture-o"></i>
-								</a>
-							</div>
-						</div>
+						<Plan
+							name={PlansData[0].name}
+							price={PlansData[0].price}
+							featureList={PlansData[0].featureList}
+						/>
+						<Plan
+							name={PlansData[0].name}
+							price={PlansData[0].price}
+							featureList={PlansData[0].featureList}
+						/>
+						<Plan
+							name={PlansData[0].name}
+							price={PlansData[0].price}
+							featureList={PlansData[0].featureList}
+						/>
 					</div>
 				</div>
 			</section>
@@ -226,3 +171,19 @@ export default function Home() {
 		</>
 	);
 }
+
+let PlansData = [
+	{
+		name: "6 Month Unlimited",
+		price: "₹3000.0",
+		featureList: [
+			"Free riding",
+			"Unlimited equipments",
+			"Personal trainer",
+			"Weight losing classes",
+			"Month to mouth",
+			"No time restriction",
+		],
+	},
+	
+];
