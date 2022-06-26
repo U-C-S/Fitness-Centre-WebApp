@@ -1,5 +1,6 @@
 import fastifyCors from "@fastify/cors";
 import fastify, { FastifyServerOptions } from "fastify";
+import jwtPlugin from "./plugins/jwt-auth";
 
 import prismaPlugin from "./plugins/prisma";
 import { userRoutes } from "./routes/user";
@@ -7,6 +8,7 @@ import { userRoutes } from "./routes/user";
 export function buildFastifyServer(opts: FastifyServerOptions = {}) {
   const app = fastify(opts);
 
+  app.register(jwtPlugin);
   app.register(prismaPlugin);
   app.register(fastifyCors, {
     methods: ["GET", "POST", "PUT", "DELETE"],
