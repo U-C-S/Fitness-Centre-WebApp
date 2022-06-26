@@ -1,6 +1,10 @@
+import { Modal } from "@mantine/core";
 import React from "react";
+import { LoginForm } from "./LoginForm";
 
 export default function NavBar() {
+	const [isOpen, setIsOpen] = React.useState(false);
+
 	return (
 		<>
 			<div className="offcanvas-menu-overlay" />
@@ -63,7 +67,9 @@ export default function NavBar() {
 										<a href="./about">About us</a>
 									</li>
 									<li>
-										<a href="#">Login</a>
+										<a href="#" onClick={() => setIsOpen(true)}>
+											Login
+										</a>
 									</li>
 								</ul>
 							</nav>
@@ -88,14 +94,17 @@ export default function NavBar() {
 									</a>
 								</div>
 							</div>
+							''
 						</div>
 					</div>
 					<div className="canvas-open">
 						<i className="fa fa-bars"></i>
 					</div>
 				</div>
+				<Modal centered opened={isOpen} onClose={() => setIsOpen(false)}>
+					<LoginForm />
+				</Modal>
 			</header>
-			{/* <!-- Header End --> */}
 		</>
 	);
 }
