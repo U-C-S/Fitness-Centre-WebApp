@@ -44,7 +44,7 @@ model user {
   age         Int?          @db.SmallInt
   weight      Int?          @db.SmallInt
   height      Int?          @db.SmallInt
-  ph_num      Int?
+  ph_num      Int           @unique
   address     String?
   plans       plans[]
   trains_user trains_user[]
