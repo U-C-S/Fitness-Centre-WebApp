@@ -9,7 +9,6 @@ export function LoginForm(props: PaperProps<"div">) {
 			email: "",
 			name: "",
 			password: "",
-			terms: true,
 		},
 
 		// validationRules: {

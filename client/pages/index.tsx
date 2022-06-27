@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Script from "next/script";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import { Plan } from "../components/Plans";
@@ -107,21 +106,9 @@ export default function Home() {
 						</div>
 					</div>
 					<div className="row justify-content-center">
-						<Plan
-							name={PlansData[0].name}
-							price={PlansData[0].price}
-							featureList={PlansData[0].featureList}
-						/>
-						<Plan
-							name={PlansData[1].name}
-							price={PlansData[1].price}
-							featureList={PlansData[1].featureList}
-						/>
-						<Plan
-							name={PlansData[2].name}
-							price={PlansData[2].price}
-							featureList={PlansData[2].featureList}
-						/>
+						{PlansData.map(plan => (
+							<Plan name={plan.name} price={plan.price} featureList={plan.featureList} />
+						))}
 					</div>
 				</div>
 			</section>

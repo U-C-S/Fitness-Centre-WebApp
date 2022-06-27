@@ -2,24 +2,43 @@ import React from "react";
 import { Button, Drawer, Group, NumberInput, Stack } from "@mantine/core";
 import { TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import Router from "next/router";
 
 export function Register() {
 	const form = useForm({
 		initialValues: {
-			fname: "",
-			lname: "",
-			height: 0,
-			weight: 0,
-			age: 0,
-			address: "",
-			ph_num: null,
-			email: "",
-			password: "",
+			fname: "Mad",
+			lname: "Man",
+			height: 170,
+			weight: 70,
+			age: 50,
+			address: "here",
+			ph_num: 987641230,
+			email: "hello@gmail.com",
+			password: "123456",
 		},
 	});
 
-	function blah(val: typeof form.values) {
-		console.log(val);
+	async function blah(values: typeof form.values) {
+		console.log(values);
+
+		let fetchOpts = {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(values),
+		};
+
+		let res = await fetch(`${process.env.API_URL}/auth/login`, fetchOpts);
+		let resData = await res.json();
+
+		console.log(resData);
+		if (resData.success) {
+			localStorage.setItem("jwt", resData.data.token);
+			localStorage.setItem("user", resData.data.username);
+			Router.push(`/p/${values.ph_num}`);
+		}
 	}
 
 	return (
