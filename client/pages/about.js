@@ -23,8 +23,10 @@ export default function about() {
 								<span className="flaticon-034-stationary-bike"></span>
 								<h4>Modern equipment</h4>
 								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-									dolore facilisis.
+									A training bench is an adjustable platform used for performing weight training exercises.
+									You should be able to adjust the backrest, so you can move it from a flat position to an
+									incline. You'll find a range of benches online, but look for a well-constructed and easily
+									adjustable bench.
 								</p>
 							</div>
 						</div>
@@ -33,18 +35,19 @@ export default function about() {
 								<span className="flaticon-033-juice"></span>
 								<h4>Healthy nutrition plan</h4>
 								<p>
-									Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
-									facilisis.
+									Eating a variety of foods from the 5 major food groups provides a range of nutrients to the
+									body, promotes good health and can help reduce the risk of disease - as well as keeping your
+									diet interesting with different flavours and textures.
 								</p>
 							</div>
 						</div>
 						<div className="col-lg-3 col-sm-6">
 							<div className="cs-item">
 								<span className="flaticon-002-dumbell"></span>
-								<h4>Proffesponal training plan</h4>
+								<h4>Professional training plan</h4>
 								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-									dolore facilisis.
+									Looking for the best place to start working towards a leaner, solid, and stronger body? This
+									thorough workout routine is specifically designed to get you there!
 								</p>
 							</div>
 						</div>
@@ -53,8 +56,9 @@ export default function about() {
 								<span className="flaticon-014-heart-beat"></span>
 								<h4>Unique to your needs</h4>
 								<p>
-									Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
-									facilisis.
+									“To keep the body in good health is a duty… otherwise we shall not be able to keep our mind
+									strong and clear.” “When it comes to eating right and exercising, there is no 'I'll start
+									tomorrow'.” “It never gets easier, you just get better.
 								</p>
 							</div>
 						</div>
@@ -77,12 +81,7 @@ export default function about() {
 									<h2>What we have done</h2>
 								</div>
 								<div className="at-desc">
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-										ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
-										viverra maecenas accumsan lacus vel facilisis. aliquip ex ea commodo consequat sit amet,
-										consectetur adipiscing elit, sed do eiusmod tempor.
-									</p>
+									<p></p>
 								</div>
 								<div className="about-bar">
 									<div className="ab-item">
@@ -110,6 +109,14 @@ export default function about() {
 											<div className="tipWrap">
 												<span className="tip"></span>
 											</div>
+										</div>
+										<div>
+											<p>
+												Our operating hours are: <br />
+												Monday to Saturday, 6.00 am to 12.00 am. <br />
+												Sunday 6:00 am to <br />
+												10:00 pm. Be Strong! <br />
+											</p>
 										</div>
 									</div>
 								</div>
