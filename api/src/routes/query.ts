@@ -1,6 +1,6 @@
-import { FastifyInstance } from "fastify";
+import { FastifyInstance, FastifyPluginCallback } from "fastify";
 
-export function queryRoutes(fastify: FastifyInstance) {
+export const queryRoutes: FastifyPluginCallback = (fastify, options, done) => {
   let { prisma } = fastify;
 
   fastify.post("/", async (request, reply) => {
@@ -22,4 +22,6 @@ export function queryRoutes(fastify: FastifyInstance) {
     const queries = await prisma.queries.findMany();
     reply.code(200).send(queries);
   });
-}
+
+  done();
+};

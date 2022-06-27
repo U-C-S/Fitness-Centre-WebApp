@@ -1,7 +1,7 @@
-import { FastifyInstance } from "fastify";
+import { FastifyInstance, FastifyPluginCallback } from "fastify";
 import { jwtUserPayload } from "../plugins/jwt-auth";
 
-export function userRoutes(fastify: FastifyInstance) {
+export const userRoutes: FastifyPluginCallback = (fastify, options, done) => {
   let { prisma } = fastify;
 
   fastify.get(
@@ -17,34 +17,20 @@ export function userRoutes(fastify: FastifyInstance) {
         return reply.code(404).send({ message: "Profile not found" });
       }
 
-      let { fname, age, height, lname, weight, ph_num, address } = profile;
+      let { name, age, height, weight, ph_num, gender } = profile;
       reply.code(200).send({
         succes: true,
         data: {
-          fname,
+          name,
           age,
           height,
-          lname,
           weight,
           ph_num,
-          address,
+          gender,
         },
       });
     }
   );
 
-  fastify.post("/", async (request, reply) => {
-    const { body } = request as any;
-
-    const profile = await prisma.user.create({
-      data: {
-        fname: body.name,
-        lname: body.lname,
-        ph_num: body.ph_num,
-        password: body.password,
-      },
-    });
-
-    return profile;
-  });
-}
+  done();
+};
