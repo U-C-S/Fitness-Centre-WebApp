@@ -45,9 +45,9 @@ export default function contact() {
 								<div className="cw-text">
 									<i className="fa fa-map-marker"></i>
 									<p>
-									C-Block, JP Nagar, Mysuru, <br />
-								 Karnataka 570008,  <br />
-								 India <br />
+										C-Block, JP Nagar, Mysuru, <br />
+										Karnataka 570008, <br />
+										India <br />
 									</p>
 								</div>
 								<div className="cw-text">
@@ -79,49 +79,8 @@ export default function contact() {
 					</div>
 				</div>
 			</section>
-			{/* <!-- Contact Section End -->
 
-    <!-- Get In Touch Section Begin --> */}
-			<div className="gettouch-section">
-				<div className="container">
-					<div className="row">
-						<div className="col-md-4">
-							<div className="gt-text">
-								<i className="fa fa-map-marker"></i>
-								<p>
-								C-Block, JP Nagar, Mysuru, <br />
-								 Karnataka 570008,  <br />
-								 India <br />
-								</p>
-							</div>
-						</div>
-						<div className="col-md-4">
-							<div className="gt-text">
-								<i className="fa fa-mobile"></i>
-								<ul>
-									<li>125-711-811</li>
-									<li>125-668-886</li>
-								</ul>
-							</div>
-						</div>
-						<div className="col-md-4">
-							<div className="gt-text email">
-								<i className="fa fa-envelope"></i>
-								<p>Support.gymcenter@gmail.com</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 			<Footer />
-			<div className="search-model">
-				<div className="h-100 d-flex align-items-center justify-content-center">
-					<div className="search-close-switch">+</div>
-					<form className="search-model-form">
-						<input type="text" id="search-input" placeholder="Search here....." />
-					</form>
-				</div>
-			</div>
 		</>
 	);
 }

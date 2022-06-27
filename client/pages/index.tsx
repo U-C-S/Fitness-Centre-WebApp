@@ -47,7 +47,8 @@ export default function Home() {
 							<div className="ss-text">
 								<h4>Personal training</h4>
 								<p>
-								If you are just starting out with an exercise program or you aren't seeing results with your current routine, a personal trainer might be your best option
+									If you are just starting out with an exercise program or you aren't seeing results with your
+									current routine, a personal trainer might be your best option
 								</p>
 								<a href="#">Explore</a>
 							</div>
@@ -60,7 +61,10 @@ export default function Home() {
 						<div className="col-lg-3 order-lg-4 col-md-6 p-0">
 							<div className="ss-text">
 								<h4>Group fitness classes</h4>
-								<p>Head to a group fitness class on the days you’re not motivated to work out. With a teacher telling you what to do, the session is less work for you, while still being effective.</p>
+								<p>
+									Head to a group fitness class on the days you’re not motivated to work out. With a teacher
+									telling you what to do, the session is less work for you, while still being effective.
+								</p>
 								<a href="#">Explore</a>
 							</div>
 						</div>
@@ -73,7 +77,8 @@ export default function Home() {
 							<div className="ss-text second-row">
 								<h4>Body building</h4>
 								<p>
-								If you want to get serious about bodybuilding, you’ll need to navigate your nutrition and training with military precision
+									If you want to get serious about bodybuilding, you’ll need to navigate your nutrition and
+									training with military precision
 								</p>
 								<a href="#">Explore</a>
 							</div>
@@ -86,7 +91,11 @@ export default function Home() {
 						<div className="col-lg-3 order-lg-5 col-md-6 p-0">
 							<div className="ss-text second-row">
 								<h4>Strength training</h4>
-								<p>Strength Training Increases Muscle Mass and Potential Calorie Burn. While cardio is important for general health and weight management, it isn't the only type of exercise that can help you reduce body fat</p>
+								<p>
+									Strength Training Increases Muscle Mass and Potential Calorie Burn. While cardio is
+									important for general health and weight management, it isn't the only type of exercise that
+									can help you reduce body fat
+								</p>
 								<a href="#">Explore</a>
 							</div>
 						</div>
@@ -111,39 +120,6 @@ export default function Home() {
 					</div>
 				</div>
 			</section>
-
-			<div className="gettouch-section">
-				<div className="container">
-					<div className="row">
-						<div className="col-md-4">
-							<div className="gt-text">
-								<i className="fa fa-map-marker"></i>
-								<p>
-								C-Block, JP Nagar, Mysuru, <br />
-								 Karnataka 570008,  <br />
-								 India <br />
-									
-								</p>
-							</div>
-						</div>
-						<div className="col-md-4">
-							<div className="gt-text">
-								<i className="fa fa-mobile"></i>
-								<ul>
-									<li>125-711-811</li>
-									<li>125-668-886</li>
-								</ul>
-							</div>
-						</div>
-						<div className="col-md-4">
-							<div className="gt-text email">
-								<i className="fa fa-envelope"></i>
-								<p>Support.gymcenter@gmail.com</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 
 			<Footer />
 		</>

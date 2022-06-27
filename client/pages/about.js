@@ -126,76 +126,6 @@ export default function about() {
 				</div>
 			</section>
 
-			<section className="team-section spad">
-				<div className="container">
-					<div className="row">
-						<div className="col-lg-12">
-							<div className="team-title">
-								<div className="section-title">
-									<span>Our Team</span>
-									<h2>TRAIN WITH EXPERTS</h2>
-								</div>
-								<a href="#" className="primary-btn btn-normal appoinment-btn">
-									appointment
-								</a>
-							</div>
-						</div>
-					</div>
-					<div className="row">
-						<div className="ts-slider owl-carousel">
-							<div className="col-lg-4">
-								<div className="ts-item set-bg" data-setbg="img/team/team-1.jpg">
-									<div className="ts_text">
-										<h4>Athart Rachel</h4>
-										<span>Gym Trainer</span>
-									</div>
-								</div>
-							</div>
-							<div className="col-lg-4">
-								<div className="ts-item set-bg" data-setbg="img/team/team-2.jpg">
-									<div className="ts_text">
-										<h4>Athart Rachel</h4>
-										<span>Gym Trainer</span>
-									</div>
-								</div>
-							</div>
-							<div className="col-lg-4">
-								<div className="ts-item set-bg" data-setbg="img/team/team-3.jpg">
-									<div className="ts_text">
-										<h4>Athart Rachel</h4>
-										<span>Gym Trainer</span>
-									</div>
-								</div>
-							</div>
-							<div className="col-lg-4">
-								<div className="ts-item set-bg" data-setbg="img/team/team-4.jpg">
-									<div className="ts_text">
-										<h4>Athart Rachel</h4>
-										<span>Gym Trainer</span>
-									</div>
-								</div>
-							</div>
-							<div className="col-lg-4">
-								<div className="ts-item set-bg" data-setbg="img/team/team-5.jpg">
-									<div className="ts_text">
-										<h4>Athart Rachel</h4>
-										<span>Gym Trainer</span>
-									</div>
-								</div>
-							</div>
-							<div className="col-lg-4">
-								<div className="ts-item set-bg" data-setbg="img/team/team-6.jpg">
-									<div className="ts_text">
-										<h4>Athart Rachel</h4>
-										<span>Gym Trainer</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
 			<section className="testimonial-section spad">
 				<div className="container">
 					<div className="row">
@@ -263,47 +193,7 @@ export default function about() {
 				</div>
 			</section>
 
-			<div className="gettouch-section">
-				<div className="container">
-					<div className="row">
-						<div className="col-md-4">
-							<div className="gt-text">
-								<i className="fa fa-map-marker"></i>
-								<p>
-									333 Middle Winchendon Rd, Rindge,
-									<br /> NH 03461
-								</p>
-							</div>
-						</div>
-						<div className="col-md-4">
-							<div className="gt-text">
-								<i className="fa fa-mobile"></i>
-								<ul>
-									<li>125-711-811</li>
-									<li>125-668-886</li>
-								</ul>
-							</div>
-						</div>
-						<div className="col-md-4">
-							<div className="gt-text email">
-								<i className="fa fa-envelope"></i>
-								<p>Support.gymcenter@gmail.com</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
 			<Footer />
-
-			<div className="search-model">
-				<div className="h-100 d-flex align-items-center justify-content-center">
-					<div className="search-close-switch">+</div>
-					<form className="search-model-form">
-						<input type="text" id="search-input" placeholder="Search here....." />
-					</form>
-				</div>
-			</div>
 		</>
 	);
 }

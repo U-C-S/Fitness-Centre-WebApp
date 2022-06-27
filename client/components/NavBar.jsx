@@ -83,9 +83,6 @@ export default function NavBar() {
 						</div>
 						<div className="col-lg-3">
 							<div className="top-option">
-								<div className="to-search search-switch">
-									<i className="fa fa-search"></i>
-								</div>
 								<div className="to-social">
 									<a href="#">
 										<i className="fa fa-facebook"></i>
