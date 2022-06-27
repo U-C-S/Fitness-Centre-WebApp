@@ -40,7 +40,7 @@ export function LoginForm(props: adad) {
 			if (props.staff == false && props.staff == undefined) {
 				Router.push(`/profile/${values.ph_num}`);
 			} else {
-				Router.push(`/admin/${resData.data.type}`);
+				Router.push(`/admin/view/customers`);
 			}
 		} else {
 			alert(resData.message);

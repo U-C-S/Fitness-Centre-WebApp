@@ -32,5 +32,22 @@ export const userRoutes: FastifyPluginCallback = (fastify, options, done) => {
     }
   );
 
+  fastify.get("/all", async (request, reply) => {
+    const profiles = await prisma.user.findMany({
+      select: {
+        id: true,
+        name: true,
+        age: true,
+        gender: true,
+        ph_num: true,
+      },
+    });
+
+    reply.code(200).send({
+      success: true,
+      data: profiles,
+    });
+  });
+
   done();
 };
