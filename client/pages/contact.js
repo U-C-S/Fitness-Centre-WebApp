@@ -7,7 +7,7 @@ export default function contact() {
 	return (
 		<>
 			<Head>
-				<title>Gym | Home</title>
+				<title>Contact | GYM</title>
 			</Head>
 
 			<NavBar />
