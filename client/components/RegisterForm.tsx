@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
 	Button,
+	Card,
 	Center,
 	Divider,
 	Drawer,
 	Group,
+	Loader,
 	NumberInput,
 	Paper,
 	Radio,
@@ -108,11 +110,39 @@ export function RegisterForm({ registerEventHandler }: any) {
 	);
 }
 
+function DoneStep() {
+	const [info, setInfo] = useState<any | null>(null);
+
+	useEffect(() => {
+		let x = JSON.parse(localStorage.getItem("trainingData") as string);
+		setInfo(x);
+	}, []);
+
+	return (
+		<Paper withBorder p={5} m={5}>
+			<Text align="center">You have successfully registered.</Text>
+			{info ? (
+				<>
+					<Text align="center" m={10}>
+						Your Trainer is:
+					</Text>
+					<Card withBorder radius="md" style={{ width: "250px", margin: "auto" }}>
+						<Text align="center">Name: {info.trainer.name}</Text>
+						<Text align="center">who has experience level of {info.trainer.explevel}</Text>
+					</Card>
+				</>
+			) : (
+				<Loader />
+			)}
+		</Paper>
+	);
+}
+
 export function Register({ selectedPlan }: any) {
-	const [active, setActive] = useState(1);
+	const [active, setActive] = useState(0);
 	const [openlogin, setLogin] = useState(false);
 	const nextStep = () => setActive(current => (current < 3 ? current + 1 : current));
-	const prevStep = () => setActive(current => (current > 0 ? current - 1 : current));
+	// const prevStep = () => setActive(current => (current > 0 ? current - 1 : current));
 
 	const authWrapperFn = (type: "login" | "register") => {
 		return async function registerEventHandler(values: any) {
@@ -130,7 +160,7 @@ export function Register({ selectedPlan }: any) {
 			console.log(resData);
 			if (resData.success) {
 				localStorage.setItem("jwt", resData.data.token);
-				localStorage.setItem("user", resData.data.username);
+				localStorage.setItem("ph_num", resData.data.ph_num);
 				nextStep();
 			}
 		};
@@ -154,6 +184,10 @@ export function Register({ selectedPlan }: any) {
 		} else {
 			alert("Something went wrong");
 		}
+	};
+
+	const RegistrationDone = () => {
+		Router.push(`/profile/${localStorage.getItem("ph_num")}`);
 	};
 
 	return (
@@ -191,9 +225,10 @@ export function Register({ selectedPlan }: any) {
 						</Paper>
 					</Stepper.Step>
 					<Stepper.Step label="Final step" description="Done">
-						<Text p={5} align="center">
-							Step 3: Done
-						</Text>
+						<DoneStep />
+						<Button style={{ width: "100%" }} onClick={() => RegistrationDone()}>
+							Done
+						</Button>
 					</Stepper.Step>
 					<Stepper.Completed>Completed, click back button to get to previous step</Stepper.Completed>
 				</Stepper>
