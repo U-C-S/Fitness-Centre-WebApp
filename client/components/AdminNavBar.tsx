@@ -81,7 +81,11 @@ export function AdminNavbar() {
 		<Navbar height={"100vh"} width={{ sm: 230 }} p="md" className={classes.navbar}>
 			<Navbar.Section grow>
 				<Group className={classes.header} position="apart">
-					<img src="/img/logo.png" alt="" />
+					<Link href="/">
+						<a>
+							<img src="/img/logo.png" alt="" />
+						</a>
+					</Link>
 				</Group>
 				{links}
 			</Navbar.Section>

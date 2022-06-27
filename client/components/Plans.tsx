@@ -16,14 +16,10 @@ export function Plan({ plan }: any) {
 						<li>{feature}</li>
 					))}
 				</ul>
-				<a href="#" className="primary-btn pricing-btn" onClick={() => setOpened(true)}>
+				<button className="primary-btn pricing-btn" onClick={() => setOpened(true)}>
 					Enroll now
-				</a>
+				</button>
 				<RegisterFormDrawer opened={opened} setOpened={setOpened} selectedPlan={plan} />
-
-				<a href="#" className="thumb-icon">
-					<i className="fa fa-picture-o"></i>
-				</a>
 			</div>
 		</div>
 	);

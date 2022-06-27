@@ -1,4 +1,4 @@
-import { Button, Textarea, TextInput } from "@mantine/core";
+import { Button, Stack, Textarea, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import React from "react";
 
@@ -35,8 +35,8 @@ export function QueryForm() {
 	};
 
 	return (
-		<div className="leave-comment">
-			<form onSubmit={form.onSubmit(sendQuery)}>
+		<form onSubmit={form.onSubmit(sendQuery)}>
+			<Stack>
 				<TextInput
 					required
 					label="Name"
@@ -59,7 +59,7 @@ export function QueryForm() {
 					onChange={event => form.setFieldValue("query", event.currentTarget.value)}
 				/>
 				<Button type="submit">Submit</Button>
-			</form>
-		</div>
+			</Stack>
+		</form>
 	);
 }

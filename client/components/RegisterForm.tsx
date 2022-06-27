@@ -45,13 +45,13 @@ export function RegisterForm({ registerEventHandler }: any) {
 					onChange={event => form.setFieldValue("name", event.currentTarget.value)}
 				/>
 
-				<Group>
+				<Group position="center">
 					<NumberInput
 						label="Height"
 						placeholder="Enter Height"
 						name="high"
 						required
-						style={{ width: "130px" }}
+						style={{ width: "100px" }}
 						value={form.values.height}
 						onChange={event => form.setFieldValue("height", event as number)}
 					/>
@@ -60,7 +60,7 @@ export function RegisterForm({ registerEventHandler }: any) {
 						placeholder="Enter weight"
 						name="weigh"
 						required
-						style={{ width: "140px" }}
+						style={{ width: "100px" }}
 						value={form.values.weight}
 						onChange={event => form.setFieldValue("weight", event as number)}
 					/>
@@ -69,6 +69,7 @@ export function RegisterForm({ registerEventHandler }: any) {
 						placeholder="Enter Age"
 						name="Age"
 						required
+						style={{ width: "100px" }}
 						value={form.values.age}
 						onChange={event => form.setFieldValue("age", event as number)}
 					/>
@@ -101,9 +102,6 @@ export function RegisterForm({ registerEventHandler }: any) {
 					value={form.values.password}
 					onChange={event => form.setFieldValue("password", event.currentTarget.value)}
 				/>
-				<p>
-					By creating an account you agree to our <a href="#">Terms & Privacy</a>.
-				</p>
 				<Button type="submit">Register</Button>
 			</Stack>
 		</form>
@@ -204,7 +202,7 @@ export function Register({ selectedPlan }: any) {
 								<Text align="center">Already have a Account ??</Text>
 								<Button onClick={() => setLogin(true)}>Login</Button>
 							</Group>
-							<Divider style={{ margin: "15px 0" }} />
+							<Divider style={{ margin: "15px 0" }} label="or Register to continue" labelPosition="center" />
 							{openlogin ? (
 								<LoginForm externalSubmitEvent={authWrapperFn("login")} />
 							) : (
