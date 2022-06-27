@@ -5,6 +5,7 @@ import Router from "next/router";
 
 interface adad extends PaperProps<"div"> {
 	admin?: boolean;
+	externalSubmitEvent?: (values: { ph_num: number; password: string }) => Promise<void>;
 }
 
 export function LoginForm(props: adad) {
@@ -36,7 +37,7 @@ export function LoginForm(props: adad) {
 		if (res.status === 200) {
 			localStorage.setItem("jwt", resData.data.token);
 			localStorage.setItem("user", resData.data.ph_num);
-			
+
 			if (props.admin == false && props.admin == undefined) {
 				Router.push(`/profile/${values.ph_num}`);
 			} else {
@@ -53,7 +54,7 @@ export function LoginForm(props: adad) {
 				Login
 			</Text>
 
-			<form onSubmit={form.onSubmit(submitEvent)}>
+			<form onSubmit={form.onSubmit(props.externalSubmitEvent ? props.externalSubmitEvent : submitEvent)}>
 				<Group direction="column" grow>
 					<NumberInput
 						required
