@@ -11,7 +11,6 @@ export async function authRoutes(fastify: FastifyInstance) {
     const profile = await prisma.user.findUnique({
       where: { ph_num },
     });
-    console.warn(profile?.age == 24, "dadakmdakmd");
 
     let code: number;
     if (!profile) code = 404;
@@ -38,44 +37,30 @@ export async function authRoutes(fastify: FastifyInstance) {
     });
   });
 
-  fastify.post("/stafflogin", async (request, reply) => {
+  fastify.post("/adminlogin", async (request, reply) => {
     const { ph_num, password } = request.body as any;
 
-    let trainer;
-    let type = "";
-
+    //TODO: THIS IS HACKY. Maybe use a database
     if (ph_num === parseInt(process.env.ADMIN_NUM as string) && password === process.env.ADMIN_PASSWORD) {
-      //TODO: THIS IS HACKY. Maybe use a database
-      trainer = {
+      let trainer = {
         id: ph_num,
         ph_num: ph_num,
       };
-      type = "admin";
-    } // -------------------- trainer login --------------------
-    else {
-      trainer = await prisma.trainer.findUnique({
-        where: { ph_num },
-      });
-      const isValid = await bcrypt.compare(password, trainer?.password as string);
-      if (!isValid) {
-        return reply.code(401).send({
-          message: "Invalid trainer credentials",
-        });
-      }
-      type = "trainer";
-    }
-
-    return reply.code(200).send({
-      message: "Staff Login successful",
-      data: {
-        token: await reply.jwtSign({
-          id: trainer?.id as number,
+      return reply.code(200).send({
+        message: "Admin Login successful",
+        data: {
+          token: await reply.jwtSign({
+            id: trainer?.id as number,
+            ph_num,
+          }),
           ph_num,
-        }),
-        ph_num,
-        type,
-      },
-    });
+        },
+      });
+    } else {
+      return reply.code(401).send({
+        message: "Invalid admin credentials",
+      });
+    }
   });
 
   fastify.post("/register", async (request, reply) => {

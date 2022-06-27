@@ -26,7 +26,7 @@ const Home: NextPage = () => {
 			/>
 
 			<LoginForm
-				staff
+				admin
 				style={{
 					position: "absolute",
 					background: "hsla(50, 10%, 10%, 0.7)",

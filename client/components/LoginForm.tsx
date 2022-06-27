@@ -4,7 +4,7 @@ import { PasswordInput, Text, Paper, Group, PaperProps, Button, Anchor, NumberIn
 import Router from "next/router";
 
 interface adad extends PaperProps<"div"> {
-	staff?: boolean;
+	admin?: boolean;
 }
 
 export function LoginForm(props: adad) {
@@ -28,7 +28,7 @@ export function LoginForm(props: adad) {
 				password: values.password,
 			}),
 		};
-		let url = props.staff ? `${process.env.API_URL}/auth/stafflogin` : `${process.env.API_URL}/auth/login`;
+		let url = props.admin ? `${process.env.API_URL}/auth/adminlogin` : `${process.env.API_URL}/auth/login`;
 		let res = await fetch(url, fetchOpts);
 		let resData = await res.json();
 
@@ -36,8 +36,8 @@ export function LoginForm(props: adad) {
 		if (res.status === 200) {
 			localStorage.setItem("jwt", resData.data.token);
 			localStorage.setItem("user", resData.data.ph_num);
-			localStorage.setItem("type", resData.data.type);
-			if (props.staff == false && props.staff == undefined) {
+			
+			if (props.admin == false && props.admin == undefined) {
 				Router.push(`/profile/${values.ph_num}`);
 			} else {
 				Router.push(`/admin/view/customers`);
