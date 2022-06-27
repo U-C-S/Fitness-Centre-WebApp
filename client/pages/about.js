@@ -5,10 +5,6 @@ import Footer from "../components/Footer";
 export default function about() {
 	return (
 		<>
-			<Head>
-				<link rel="stylesheet" href="css/style.css" type="text/css" />
-			</Head>
-
 			<Navbar />
 
 			<section className="choseus-section spad">
