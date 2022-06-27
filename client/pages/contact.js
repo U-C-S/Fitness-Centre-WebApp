@@ -45,8 +45,9 @@ export default function contact() {
 								<div className="cw-text">
 									<i className="fa fa-map-marker"></i>
 									<p>
-										333 Middle Winchendon Rd, Rindge,
-										<br /> NH 03461
+									C-Block, JP Nagar, Mysuru, <br />
+								 Karnataka 570008,  <br />
+								 India <br />
 									</p>
 								</div>
 								<div className="cw-text">
@@ -96,8 +97,9 @@ export default function contact() {
 							<div className="gt-text">
 								<i className="fa fa-map-marker"></i>
 								<p>
-									333 Middle Winchendon Rd, Rindge,
-									<br /> NH 03461
+								C-Block, JP Nagar, Mysuru, <br />
+								 Karnataka 570008,  <br />
+								 India <br />
 								</p>
 							</div>
 						</div>
