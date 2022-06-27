@@ -109,7 +109,7 @@ export function RegisterForm({ registerEventHandler }: any) {
 }
 
 export function Register({ selectedPlan }: any) {
-	const [active, setActive] = useState(0);
+	const [active, setActive] = useState(1);
 	const [openlogin, setLogin] = useState(false);
 	const nextStep = () => setActive(current => (current < 3 ? current + 1 : current));
 	const prevStep = () => setActive(current => (current > 0 ? current - 1 : current));
@@ -136,6 +136,26 @@ export function Register({ selectedPlan }: any) {
 		};
 	};
 
+	const BuyPlan = async () => {
+		let res = await fetch(`${process.env.API_URL}/api/user/buyplan`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+			},
+			body: JSON.stringify({
+				plan: selectedPlan.id,
+			}),
+		});
+		let resData = await res.json();
+		if (res.status === 200) {
+			localStorage.setItem("trainingData", JSON.stringify(resData.data));
+			nextStep();
+		} else {
+			alert("Something went wrong");
+		}
+	};
+
 	return (
 		<>
 			<>
@@ -145,7 +165,7 @@ export function Register({ selectedPlan }: any) {
 							Step 1: Create an account
 						</Text>
 
-						<Paper p={10} withBorder style={{ backgroundColor: "hsl(20, 5%, 25%)" }}>
+						<Paper p={10} withBorder style={{ backgroundColor: "hsl(20, 1%, 21%)" }}>
 							<Group m={5} position="center">
 								<Text align="center">Already have a Account ??</Text>
 								<Button onClick={() => setLogin(true)}>Login</Button>
@@ -159,10 +179,21 @@ export function Register({ selectedPlan }: any) {
 						</Paper>
 					</Stepper.Step>
 					<Stepper.Step label="Second step" description="Payment">
-						Step 2 content: Verify email
+						<Text p={5} align="center">
+							Step 2: Make Payment
+						</Text>
+						<Paper p={10} withBorder style={{ backgroundColor: "hsl(20, 1%, 21%)", margin: "30px 0" }}>
+							<Stack m={5}>
+								<Text>You have selected the "{selectedPlan.name}" plan.</Text>
+								<Text>The price is Rs.{selectedPlan.price}/-</Text>
+								<Button onClick={() => BuyPlan()}>Pay</Button>
+							</Stack>
+						</Paper>
 					</Stepper.Step>
 					<Stepper.Step label="Final step" description="Done">
-						Step 3 content: Get full access
+						<Text p={5} align="center">
+							Step 3: Done
+						</Text>
 					</Stepper.Step>
 					<Stepper.Completed>Completed, click back button to get to previous step</Stepper.Completed>
 				</Stepper>
