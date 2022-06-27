@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import { QueryForm } from "../components/QueryForm";
 
 export default function contact() {
 	return (
@@ -21,9 +22,8 @@ export default function contact() {
 							<div className="breadcrumb-text">
 								<h2>Contact Us</h2>
 								<div className="bt-option">
-									{/* <a href="./index.html">Home</a>
-                  <a href="#">Pages</a>
-                  <span>Contact us</span> */}
+									<a href="/">Home</a>
+									<span>Contact us</span>
 								</div>
 							</div>
 						</div>
@@ -63,15 +63,7 @@ export default function contact() {
 							</div>
 						</div>
 						<div className="col-lg-6">
-							<div className="leave-comment">
-								<form action="#">
-									<input type="text" placeholder="Name" />
-									<input type="text" placeholder="Email" />
-									<input type="text" placeholder="Website" />
-									<textarea placeholder="Comment"></textarea>
-									<button type="submit">Submit</button>
-								</form>
-							</div>
+							<QueryForm />
 						</div>
 					</div>
 					<div className="map">
