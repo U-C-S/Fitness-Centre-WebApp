@@ -1,3 +1,4 @@
+import "dotenv/config";
 import fastifyCors from "@fastify/cors";
 import fastify, { FastifyServerOptions } from "fastify";
 import jwtPlugin from "./plugins/jwt-auth";
@@ -37,11 +38,8 @@ let serverOpts: FastifyServerOptions = {
 };
 
 // server
-buildFastifyServer(serverOpts).listen(
-  { port: parseInt(process.env.PORT || "3100") },
-  (err, address) => {
-    if (err) {
-      console.log(err);
-    }
+buildFastifyServer(serverOpts).listen({ port: parseInt(process.env.PORT || "3100") }, (err, address) => {
+  if (err) {
+    console.log(err);
   }
-);
+});

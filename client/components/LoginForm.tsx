@@ -1,20 +1,18 @@
 import React from "react";
 import { useForm } from "@mantine/hooks";
-import { TextInput, PasswordInput, Text, Paper, Group, PaperProps, Button, Anchor } from "@mantine/core";
+import { PasswordInput, Text, Paper, Group, PaperProps, Button, Anchor, NumberInput } from "@mantine/core";
 import Router from "next/router";
 
-export function LoginForm(props: PaperProps<"div">) {
+interface adad extends PaperProps<"div"> {
+	staff?: boolean;
+}
+
+export function LoginForm(props: adad) {
 	const form = useForm({
 		initialValues: {
-			email: "",
-			name: "",
+			ph_num: 0,
 			password: "",
 		},
-
-		// validationRules: {
-		// 	email: val => /^\S+@\S+$/.test(val),
-		// 	password: val => val.length >= 4,
-		// },
 	});
 
 	const submitEvent = async (values: typeof form.values) => {
@@ -26,20 +24,26 @@ export function LoginForm(props: PaperProps<"div">) {
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
-				email: values.email,
-				name: values.name,
+				ph_num: values.ph_num,
 				password: values.password,
 			}),
 		};
-
-		let res = await fetch(`${process.env.API_URL}/auth/login`, fetchOpts);
+		let url = props.staff ? `${process.env.API_URL}/auth/stafflogin` : `${process.env.API_URL}/auth/login`;
+		let res = await fetch(url, fetchOpts);
 		let resData = await res.json();
 
 		console.log(resData);
-		if (resData.success) {
+		if (res.status === 200) {
 			localStorage.setItem("jwt", resData.data.token);
-			localStorage.setItem("user", resData.data.username);
-			Router.push(`/p/${values.name}`);
+			localStorage.setItem("user", resData.data.ph_num);
+			localStorage.setItem("type", resData.data.type);
+			if (props.staff == false && props.staff == undefined) {
+				Router.push(`/profile/${values.ph_num}`);
+			} else {
+				Router.push(`/admin/${resData.data.type}`);
+			}
+		} else {
+			alert(resData.message);
 		}
 	};
 
@@ -51,13 +55,12 @@ export function LoginForm(props: PaperProps<"div">) {
 
 			<form onSubmit={form.onSubmit(submitEvent)}>
 				<Group direction="column" grow>
-					<TextInput
+					<NumberInput
 						required
-						label="Email"
-						placeholder="hello@films.com"
-						value={form.values.email}
-						onChange={event => form.setFieldValue("email", event.currentTarget.value)}
-						error={form.errors.email && "Invalid email"}
+						label="Phone Number"
+						placeholder="Enter it !!"
+						value={form.values.ph_num}
+						onChange={event => form.setFieldValue("ph_num", event as number)}
 					/>
 
 					<PasswordInput
@@ -66,7 +69,6 @@ export function LoginForm(props: PaperProps<"div">) {
 						placeholder="Your password"
 						value={form.values.password}
 						onChange={event => form.setFieldValue("password", event.currentTarget.value)}
-						error={form.errors.password && "Password should include at least 8 characters"}
 					/>
 				</Group>
 
