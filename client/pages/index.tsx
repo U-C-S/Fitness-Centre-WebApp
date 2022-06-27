@@ -1,8 +1,8 @@
 import Head from "next/head";
-import Script from "next/script";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import { Plan } from "../components/Plans";
+import { PlansData } from "../utils/plandata";
 
 export default function Home() {
 	return (
@@ -105,21 +105,9 @@ export default function Home() {
 						</div>
 					</div>
 					<div className="row justify-content-center">
-						<Plan
-							name={PlansData[0].name}
-							price={PlansData[0].price}
-							featureList={PlansData[0].featureList}
-						/>
-						<Plan
-							name={PlansData[1].name}
-							price={PlansData[1].price}
-							featureList={PlansData[1].featureList}
-						/>
-						<Plan
-							name={PlansData[2].name}
-							price={PlansData[2].price}
-							featureList={PlansData[2].featureList}
-						/>
+						{PlansData.map(plan => (
+							<Plan plan={plan} />
+						))}
 					</div>
 				</div>
 			</section>
@@ -161,42 +149,3 @@ export default function Home() {
 		</>
 	);
 }
-
-let PlansData = [
-	{
-		name: "Single class",
-		price: "₹3000.0",
-		featureList: [
-			"Free riding",
-			"Unlimited equipments",
-			"Personal trainer",
-			"Weight losing classes",
-			"Month to mouth",
-			"No time restriction",
-		],
-	},
-	{
-		name: " 12 Month Unlimited",
-		price: "₹7000.0",
-		featureList: [
-			"Free riding",
-			"Unlimited equipments",
-			"Personal trainer",
-			"Weight losing classes",
-			"Month to mouth",
-			"No time restriction",
-		],
-	},
-	{
-		name: "6 Month Unlimited",
-		price: "₹5000.0",
-		featureList: [
-			"Free riding",
-			"Unlimited equipments",
-			"Personal trainer",
-			"Weight losing classes",
-			"Month to mouth",
-			"No time restriction",
-		],
-	},
-];

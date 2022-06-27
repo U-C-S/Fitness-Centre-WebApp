@@ -1,8 +1,11 @@
+import "dotenv/config";
 import fastifyCors from "@fastify/cors";
 import fastify, { FastifyServerOptions } from "fastify";
 import jwtPlugin from "./plugins/jwt-auth";
 
 import prismaPlugin from "./plugins/prisma";
+import { authRoutes } from "./routes/auth";
+import { queryRoutes } from "./routes/query";
 import { userRoutes } from "./routes/user";
 
 export function buildFastifyServer(opts: FastifyServerOptions = {}) {
@@ -15,7 +18,9 @@ export function buildFastifyServer(opts: FastifyServerOptions = {}) {
     origin: "*",
   });
 
+  app.register(authRoutes, { prefix: "/auth" });
   app.register(userRoutes, { prefix: "/api/user" });
+  app.register(queryRoutes, { prefix: "/api/query" });
 
   return app;
 }
@@ -33,11 +38,8 @@ let serverOpts: FastifyServerOptions = {
 };
 
 // server
-buildFastifyServer(serverOpts).listen(
-  { port: parseInt(process.env.PORT || "3100") },
-  (err, address) => {
-    if (err) {
-      console.log(err);
-    }
+buildFastifyServer(serverOpts).listen({ port: parseInt(process.env.PORT || "3100") }, (err, address) => {
+  if (err) {
+    console.log(err);
   }
-);
+});

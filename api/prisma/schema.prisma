@@ -7,45 +7,51 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model plans {
-  id          Int       @id @default(autoincrement())
-  taken_at    DateTime? @default(now()) @db.Timestamptz(6)
-  user_id     Int?
-  plan_type   String?
-  expires_in  DateTime? @db.Timestamptz(6)
-  paid_amount Int?
-  user        user?     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
-}
-
 model trainer {
-  id          Int           @id @default(autoincrement())
-  created_at  DateTime?     @default(now()) @db.Timestamptz(6)
-  name        String?       @unique
-  gender      String?
-  ph_num      Int?
-  trains_user trains_user[]
-}
-
-model trains_user {
-  id         Int       @id @default(autoincrement())
-  created_at DateTime? @default(now()) @db.Timestamptz(6)
-  trainer_id Int?
-  user_id    Int?
-  trainer    trainer?  @relation(fields: [trainer_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  user       user?     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  id            Int             @id @default(autoincrement())
+  created_at    DateTime?       @default(now()) @db.Timestamptz(6)
+  name          String          @unique
+  gender        String?
+  ph_num        Int             @unique
+  explevel      Int?            @db.SmallInt
+  training_info training_info[]
 }
 
 model user {
-  id          Int           @id @unique @default(autoincrement())
-  created_at  DateTime?     @default(now()) @db.Timestamptz(6)
-  fname       String?
-  lname       String?
-  password    String?
-  age         Int?          @db.SmallInt
-  weight      Int?          @db.SmallInt
-  height      Int?          @db.SmallInt
-  ph_num      Int?
-  address     String?
-  plans       plans[]
-  trains_user trains_user[]
+  id            Int            @id @unique @default(autoincrement())
+  created_at    DateTime?      @default(now()) @db.Timestamptz(6)
+  name          String         @unique
+  ph_num        Int            @unique
+  age           Int?           @db.SmallInt
+  height        Int?           @db.SmallInt
+  weight        Int?           @db.SmallInt
+  password      String
+  gender        String?
+  training_info training_info?
+}
+
+model queries {
+  id         Int       @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  name       String
+  email      String
+  query      String
+  is_viewed  Boolean?  @default(false)
+}
+
+model dump {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  key        String    @unique
+  value      String?
+}
+
+model training_info {
+  id         Int       @id(map: "training_pkey") @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  user_id    Int?      @unique(map: "training_user_id_key")
+  trainer_id Int?
+  plan       Int       @db.SmallInt
+  trainer    trainer?  @relation(fields: [trainer_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  user       user?     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }

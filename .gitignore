@@ -1,3 +1,5 @@
+_dump
+
 # Logs
 logs
 *.log
@@ -102,3 +104,8 @@ dist
 
 # TernJS port file
 .tern-port
+archive/app.ts
+archive/plugins/jwt-auth.ts
+archive/plugins/prisma.ts
+archive/routes/auth.ts
+

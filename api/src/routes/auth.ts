@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { FastifyInstance } from "fastify";
 import bcrypt from "@node-rs/bcrypt";
 
@@ -7,8 +8,8 @@ export async function authRoutes(fastify: FastifyInstance) {
   fastify.post("/login", async (request, reply) => {
     const { ph_num, password } = request.body as any;
 
-    const profile = await prisma.user.findFirst({
-      where: { ph_num, password },
+    const profile = await prisma.user.findUnique({
+      where: { ph_num },
     });
 
     let code: number;
@@ -23,7 +24,7 @@ export async function authRoutes(fastify: FastifyInstance) {
       });
     }
 
-    return reply.send({
+    return reply.code(200).send({
       success: true,
       message: "Success",
       data: {
@@ -36,25 +37,57 @@ export async function authRoutes(fastify: FastifyInstance) {
     });
   });
 
-  fastify.post("/register", async (request, reply) => {
-    const { name, password, email } = request.body as any;
+  fastify.post("/adminlogin", async (request, reply) => {
+    const { ph_num, password } = request.body as any;
 
-    await prisma.user.create({
+    //TODO: THIS IS HACKY. Maybe use a database
+    if (ph_num === parseInt(process.env.ADMIN_NUM as string) && password === process.env.ADMIN_PASSWORD) {
+      let trainer = {
+        id: ph_num,
+        ph_num: ph_num,
+      };
+      return reply.code(200).send({
+        message: "Admin Login successful",
+        data: {
+          token: await reply.jwtSign({
+            id: trainer?.id as number,
+            ph_num,
+          }),
+          ph_num,
+        },
+      });
+    } else {
+      return reply.code(401).send({
+        message: "Invalid admin credentials",
+      });
+    }
+  });
+
+  fastify.post("/register", async (request, reply) => {
+    const { name, password, ph_num, gender, age, height, weight } = request.body as any;
+
+    let profile = await prisma.user.create({
       data: {
-        fname: name,
-        lname: name,
-        height: 0,
-        weight: 0,
-        age: 0,
-        address: "",
-        ph_num: 0,
+        name,
+        height,
+        weight,
+        age,
+        gender,
+        ph_num,
         password: await bcrypt.hash(password, 10),
       },
     });
 
     return reply.send({
       success: true,
-      message: "Success",
+      message: "Registration Success",
+      data: {
+        token: await reply.jwtSign({
+          id: profile?.id as number,
+          ph_num: ph_num,
+        }),
+        ph_num: ph_num,
+      },
     });
   });
 }
