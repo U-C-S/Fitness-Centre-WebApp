@@ -35,7 +35,7 @@ export function QueryForm() {
 	};
 
 	return (
-		<form onSubmit={form.onSubmit(sendQuery)}>
+		<form onSubmit={form.onSubmit(sendQuery)} style={{ margin: "0px 20px" }}>
 			<Stack>
 				<TextInput
 					required
@@ -52,6 +52,7 @@ export function QueryForm() {
 					onChange={event => form.setFieldValue("email", event.currentTarget.value)}
 				/>
 				<Textarea
+					minRows={5}
 					required
 					label="Comment"
 					placeholder="Enter your queries and comments here...."

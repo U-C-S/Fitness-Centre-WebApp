@@ -38,7 +38,6 @@ export default function contact() {
 					<div className="row">
 						<div className="col-lg-6">
 							<div className="section-title contact-title">
-								<span>Contact Us</span>
 								<h2>GET IN TOUCH</h2>
 							</div>
 							<div className="contact-widget">
@@ -46,16 +45,14 @@ export default function contact() {
 									<i className="fa fa-map-marker"></i>
 									<p>
 										C-Block, JP Nagar, Mysuru, <br />
-										Karnataka 570008, <br />
-										India <br />
+										Karnataka 570008, India <br />
 									</p>
 								</div>
 								<div className="cw-text">
 									<i className="fa fa-mobile"></i>
-									<ul>
-										<li>125-711-811</li>
-										<li>125-668-886</li>
-									</ul>
+									<p>
+										125-711-8111 <br /> 25-668-886
+									</p>
 								</div>
 								<div className="cw-text email">
 									<i className="fa fa-envelope"></i>

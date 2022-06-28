@@ -11,8 +11,7 @@ function Footer() {
 								<i className="fa fa-map-marker"></i>
 								<p>
 									C-Block, JP Nagar, Mysuru, <br />
-									Karnataka 570008, <br />
-									India <br />
+									Karnataka 570008, India <br />
 								</p>
 							</div>
 						</div>
@@ -37,7 +36,7 @@ function Footer() {
 
 			<section className="footer-section">
 				<div className="container">
-					<div className="row">
+					<div className="row" style={{ margin: "auto" }}>
 						<div className="col-lg-4">
 							<div className="fs-about">
 								<div className="fa-logo">
@@ -104,29 +103,6 @@ function Footer() {
 										<a href="#">Contact</a>
 									</li>
 								</ul>
-							</div>
-						</div>
-						<div className="col-lg-4 col-md-6">
-							<div className="fs-widget">
-								<h4>Tips & Guides</h4>
-								<div className="fw-recent">
-									<h6>
-										<a href="#">Physical fitness may help prevent depression, anxiety</a>
-									</h6>
-									<ul>
-										<li>3 min read</li>
-										<li>20 Comment</li>
-									</ul>
-								</div>
-								<div className="fw-recent">
-									<h6>
-										<a href="#">Fitness: The best exercise to lose belly fat and tone up...</a>
-									</h6>
-									<ul>
-										<li>3 min read</li>
-										<li>20 Comment</li>
-									</ul>
-								</div>
 							</div>
 						</div>
 					</div>
