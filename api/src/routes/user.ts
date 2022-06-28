@@ -88,6 +88,16 @@ export const userRoutes: FastifyPluginCallback = (fastify, options, done) => {
         age: true,
         gender: true,
         ph_num: true,
+        training_info: {
+          select: {
+            plan: true,
+            trainer: {
+              select: {
+                name: true,
+              },
+            },
+          },
+        },
       },
     });
 

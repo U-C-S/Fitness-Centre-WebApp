@@ -27,7 +27,19 @@ const useStyles = createStyles(theme => ({
 }));
 
 interface TableScrollAreaProps {
-	data: { name: string; age: string; gender: string; ph_num: string }[];
+	data: {
+		id: number;
+		name: string;
+		age: number | null;
+		ph_num: number;
+		gender: string | null;
+		training_info: {
+			trainer: {
+				name: string;
+			} | null;
+			plan: number;
+		} | null;
+	}[];
 }
 
 export function TableScrollArea({ data }: TableScrollAreaProps) {
@@ -40,6 +52,8 @@ export function TableScrollArea({ data }: TableScrollAreaProps) {
 			<td>{row.age}</td>
 			<td>{row.gender}</td>
 			<td>{row.ph_num}</td>
+			<td>{row.training_info?.plan}</td>
+			<td>{row.training_info?.trainer?.name}</td>
 		</tr>
 	));
 
@@ -52,6 +66,8 @@ export function TableScrollArea({ data }: TableScrollAreaProps) {
 						<th>Age</th>
 						<th>Gender</th>
 						<th>Phone Number</th>
+						<th>plan</th>
+						<th>Trainer Name</th>
 					</tr>
 				</thead>
 				<tbody>{rows}</tbody>

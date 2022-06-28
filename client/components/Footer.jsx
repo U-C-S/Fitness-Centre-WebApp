@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 function Footer() {
@@ -72,13 +73,12 @@ function Footer() {
 								<h4>Useful links</h4>
 								<ul>
 									<li>
-										<a href="#">About</a>
+										<Link href={"/about"}>
+											<a>About</a>
+										</Link>
 									</li>
 									<li>
 										<a href="#">Blog</a>
-									</li>
-									<li>
-										<a href="#">Classes</a>
 									</li>
 									<li>
 										<a href="#">Contact</a>
@@ -91,16 +91,19 @@ function Footer() {
 								<h4>Support</h4>
 								<ul>
 									<li>
-										<a href="#">Login</a>
+										<Link href={"/profile"}>
+											<a>My account</a>
+										</Link>
 									</li>
 									<li>
-										<a href="#">My account</a>
+										<Link href={"/admin"}>
+											<a>Admin</a>
+										</Link>
 									</li>
 									<li>
-										<a href="#">Subscribe</a>
-									</li>
-									<li>
-										<a href="#">Contact</a>
+										<Link href={"/contact"}>
+											<a>Contact</a>
+										</Link>
 									</li>
 								</ul>
 							</div>
