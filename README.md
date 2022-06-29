@@ -1,3 +1,6 @@
-# Fitness-Centre-X
+# Fitness-Center-Webpp
 
-Minor Project
+
+Written with :
+- Frontend: `Next.js, React, Mantine, SWR, Javascript, TypeScript`
+- Backend: `Fastify, Prisma, PostgreSQL (Supabase), TypeScript`
