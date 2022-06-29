@@ -7,6 +7,7 @@ import prismaPlugin from "./plugins/prisma";
 import { authRoutes } from "./routes/auth";
 import { queryRoutes } from "./routes/query";
 import { userRoutes } from "./routes/user";
+import { trainerRoutes } from "./routes/trainer";
 
 export function buildFastifyServer(opts: FastifyServerOptions = {}) {
   const app = fastify(opts);
@@ -21,6 +22,7 @@ export function buildFastifyServer(opts: FastifyServerOptions = {}) {
   app.register(authRoutes, { prefix: "/auth" });
   app.register(userRoutes, { prefix: "/api/user" });
   app.register(queryRoutes, { prefix: "/api/query" });
+  app.register(trainerRoutes, { prefix: "/api/trainer" });
 
   return app;
 }

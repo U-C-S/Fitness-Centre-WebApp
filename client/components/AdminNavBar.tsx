@@ -91,10 +91,12 @@ export function AdminNavbar() {
 			</Navbar.Section>
 
 			<Navbar.Section className={classes.footer}>
-				<a href="#" className={classes.link} onClick={event => event.preventDefault()}>
-					<Logout className={classes.linkIcon} />
-					<span>Logout</span>
-				</a>
+				<Link href="/">
+					<a className={classes.link}>
+						<Logout className={classes.linkIcon} />
+						<span>Logout</span>
+					</a>
+				</Link>
 			</Navbar.Section>
 		</Navbar>
 	);
