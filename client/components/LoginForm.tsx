@@ -38,7 +38,7 @@ export function LoginForm(props: adad) {
 			localStorage.setItem("jwt", resData.data.token);
 			localStorage.setItem("user", resData.data.ph_num);
 
-			if (props.admin == false && props.admin == undefined) {
+			if (props.admin == false || props.admin == undefined) {
 				Router.push(`/profile/${values.ph_num}`);
 			} else {
 				Router.push(`/admin/view/customers`);

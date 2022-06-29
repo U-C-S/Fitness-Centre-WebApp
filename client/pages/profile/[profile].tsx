@@ -1,120 +1,45 @@
-import React, { useState } from "react";
-import { createStyles, Navbar, Group, Code } from "@mantine/core";
-import {
-	BellRinging,
-	Fingerprint,
-	Key,
-	Settings,
-	TwoFA,
-	DatabaseImport,
-	Receipt2,
-	SwitchHorizontal,
-	Logout,
-} from "tabler-icons-react";
+import React, { useContext } from "react";
+import { Avatar, Divider, Image, Paper, Title, Text, Loader } from "@mantine/core";
+import useSWR from "swr";
 
-const useStyles = createStyles((theme, _params, getRef) => {
-	const icon = getRef("icon");
-	return {
-		navbar: {
-			backgroundColor: theme.colors[theme.primaryColor][6],
+const userProfileFetcher = async (...args: [string, any]) => {
+	const p = localStorage.getItem("ph_num");
+	const jwt = localStorage.getItem("jwt");
+
+	let x = await fetch(args[0], {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${jwt}`,
 		},
+	});
+	return await x.json();
+};
 
-		version: {
-			backgroundColor: theme.colors[theme.primaryColor][7],
-			color: theme.white,
-			fontWeight: 700,
-		},
+export default function Profile() {
+	const { data } = useSWR(process.env.API_URL + "/api/user/", userProfileFetcher);
 
-		header: {
-			paddingBottom: theme.spacing.md,
-			marginBottom: theme.spacing.md * 1.5,
-			borderBottom: `1px solid ${theme.colors[theme.primaryColor][7]}`,
-		},
-
-		footer: {
-			paddingTop: theme.spacing.md,
-			marginTop: theme.spacing.md,
-			borderTop: `1px solid ${theme.colors[theme.primaryColor][7]}`,
-		},
-
-		link: {
-			...theme.fn.focusStyles(),
-			display: "flex",
-			alignItems: "center",
-			textDecoration: "none",
-			fontSize: theme.fontSizes.sm,
-			color: theme.white,
-			padding: `${theme.spacing.xs}px ${theme.spacing.sm}px`,
-			borderRadius: theme.radius.sm,
-			fontWeight: 500,
-
-			"&:hover": {
-				backgroundColor: theme.colors[theme.primaryColor][5],
-			},
-		},
-
-		linkIcon: {
-			ref: icon,
-			color: theme.white,
-			opacity: 0.75,
-			marginRight: theme.spacing.sm,
-		},
-
-		linkActive: {
-			"&, &:hover": {
-				backgroundColor: theme.colors[theme.primaryColor][7],
-				[`& .${icon}`]: {
-					opacity: 0.9,
-				},
-			},
-		},
-	};
-});
-
-const data = [
-	{ link: "", label: "Notifications", icon: BellRinging },
-	{ link: "", label: "Other Settings", icon: Settings },
-];
-
-export default function NavbarSimpleColored() {
-	const { classes, cx } = useStyles();
-	const [active, setActive] = useState("Billing");
-
-	const links = data.map(item => (
-		<a
-			className={cx(classes.link, { [classes.linkActive]: item.label === active })}
-			href={item.link}
-			key={item.label}
-			onClick={event => {
-				event.preventDefault();
-				setActive(item.label);
-			}}>
-			<item.icon className={classes.linkIcon} />
-			<span>{item.label}</span>
-		</a>
-	));
+	if (!data) {
+		return <Loader />;
+	}
 
 	return (
-		<Navbar height={700} width={{ sm: 300 }} p="md" className={classes.navbar}>
-			<Navbar.Section grow>
-				<Group className={classes.header} position="apart">
-					{/* <MantineLogo variant="white" /> */}
-					<Code className={classes.version}>v3.1.2</Code>
-				</Group>
-				{links}
-			</Navbar.Section>
+		<Paper radius="md" p={0} withBorder shadow={"lg"} style={{ width: "500px", margin: "0 auto" }}>
+			<Avatar
+				size={150}
+				radius={"xl"}
+				style={{ margin: "auto" }}
+				src="https://images.unsplash.com/photo-1511216335778-7cb8f49fa7a3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80"
+				alt="it's me"
+			/>
 
-			<Navbar.Section className={classes.footer}>
-				<a href="#" className={classes.link} onClick={event => event.preventDefault()}>
-					<SwitchHorizontal className={classes.linkIcon} />
-					<span>Change account</span>
-				</a>
-
-				<a href="#" className={classes.link} onClick={event => event.preventDefault()}>
-					<Logout className={classes.linkIcon} />
-					<span>Logout</span>
-				</a>
-			</Navbar.Section>
-		</Navbar>
+			<Divider my="sm" />
+			<p>Name: {data.data.name}</p>
+			<p>age: {data.data.age}</p>
+			<p>height: {data.data.height}</p>
+			<p>weight: {data.data.weight}</p>
+			<p>Gender: {data.data.gender}</p>
+			<p>Phone Number: {data.data.ph_num}</p>
+		</Paper>
 	);
 }
