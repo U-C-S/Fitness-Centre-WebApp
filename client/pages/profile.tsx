@@ -1,20 +1,7 @@
 import React, { useContext } from "react";
 import { Avatar, Divider, Image, Paper, Title, Text, Loader } from "@mantine/core";
 import useSWR from "swr";
-
-const userProfileFetcher = async (...args: [string, any]) => {
-	const p = localStorage.getItem("ph_num");
-	const jwt = localStorage.getItem("jwt");
-
-	let x = await fetch(args[0], {
-		method: "GET",
-		headers: {
-			"Content-Type": "application/json",
-			Authorization: `Bearer ${jwt}`,
-		},
-	});
-	return await x.json();
-};
+import { userProfileFetcher } from "../utils/fetcher";
 
 export default function Profile() {
 	const { data } = useSWR(process.env.API_URL + "/api/user/", userProfileFetcher);
