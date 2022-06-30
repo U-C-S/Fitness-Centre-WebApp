@@ -20,8 +20,8 @@ function Footer() {
 							<div className="gt-text">
 								<i className="fa fa-mobile"></i>
 								<ul>
-									<li>125-711-811</li>
-									<li>125-668-886</li>
+									<li>123-456-789</li>
+									<li>123-456-789</li>
 								</ul>
 							</div>
 						</div>

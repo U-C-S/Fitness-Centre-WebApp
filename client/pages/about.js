@@ -151,7 +151,7 @@ export default function about() {
 											commodo
 											<br /> viverra maecenas accumsan lacus vel facilisis.
 										</p>
-										<h5>Marshmello Gomez</h5>
+										<h5>Priyanka H</h5>
 										<div className="tt-rating">
 											<i className="fa fa-star"></i>
 											<i className="fa fa-star"></i>
@@ -177,7 +177,7 @@ export default function about() {
 											commodo
 											<br /> viverra maecenas accumsan lacus vel facilisis.
 										</p>
-										<h5>Marshmello Gomez</h5>
+										<h5>Ramya S</h5>
 										<div className="tt-rating">
 											<i className="fa fa-star"></i>
 											<i className="fa fa-star"></i>
