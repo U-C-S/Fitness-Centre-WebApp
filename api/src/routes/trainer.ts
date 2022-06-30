@@ -1,10 +1,9 @@
 import { FastifyInstance, FastifyPluginCallback } from "fastify";
 
-// ADMINTODO: Need to secure these routes for only admins
 export const trainerRoutes: FastifyPluginCallback = (fastify, options, done) => {
   let { prisma } = fastify;
 
-  fastify.post("/", async (request, reply) => {
+  fastify.post("/", { onRequest: fastify.adminAuth }, async (request, reply) => {
     const { name, ph_num, gender, explevel } = request.body as any;
 
     let trainer = await prisma.trainer.create({
@@ -23,7 +22,7 @@ export const trainerRoutes: FastifyPluginCallback = (fastify, options, done) => 
     });
   });
 
-  fastify.get("/", async (request, reply) => {
+  fastify.get("/", { onRequest: fastify.adminAuth }, async (request, reply) => {
     const { explevel, id } = request.query as { explevel?: number; id?: number };
 
     let trainers;

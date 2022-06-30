@@ -18,7 +18,7 @@ export const queryRoutes: FastifyPluginCallback = (fastify, options, done) => {
     });
   });
 
-  fastify.get("/", async (request, reply) => {
+  fastify.get("/", { onRequest: fastify.adminAuth }, async (request, reply) => {
     const queries = await prisma.queries.findMany();
 
     reply.code(200).send({

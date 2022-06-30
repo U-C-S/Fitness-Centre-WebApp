@@ -80,7 +80,7 @@ export const userRoutes: FastifyPluginCallback = (fastify, options, done) => {
     }
   );
 
-  fastify.get("/all", async (request, reply) => {
+  fastify.get("/all", { onRequest: fastify.adminAuth }, async (request, reply) => {
     const profiles = await prisma.user.findMany({
       select: {
         id: true,
