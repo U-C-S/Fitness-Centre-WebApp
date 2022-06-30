@@ -1,17 +1,17 @@
 import React from "react";
 import { useForm } from "@mantine/hooks";
-import { PasswordInput, Text, Paper, Group, PaperProps, Button, Anchor, NumberInput } from "@mantine/core";
+import { PasswordInput, Text, Paper, Group, PaperProps, Button, Anchor, TextInput } from "@mantine/core";
 import Router from "next/router";
 
 interface adad extends PaperProps<"div"> {
 	admin?: boolean;
-	externalSubmitEvent?: (values: { ph_num: number; password: string }) => Promise<void>;
+	externalSubmitEvent?: (values: { ph_num: string; password: string }) => Promise<void>;
 }
 
 export function LoginForm(props: adad) {
 	const form = useForm({
 		initialValues: {
-			ph_num: 0,
+			ph_num: "",
 			password: "",
 		},
 	});
@@ -56,12 +56,12 @@ export function LoginForm(props: adad) {
 
 			<form onSubmit={form.onSubmit(props.externalSubmitEvent ? props.externalSubmitEvent : submitEvent)}>
 				<Group direction="column" grow>
-					<NumberInput
+					<TextInput
 						required
 						label="Phone Number"
 						placeholder="Enter it !!"
 						value={form.values.ph_num}
-						onChange={event => form.setFieldValue("ph_num", event as number)}
+						onChange={event => form.setFieldValue("ph_num", event.currentTarget.value)}
 					/>
 
 					<PasswordInput
