@@ -42,15 +42,11 @@ export async function authRoutes(fastify: FastifyInstance) {
 
     //TODO: THIS IS HACKY. Maybe use a database
     if (ph_num === process.env.ADMIN_NUM && password === process.env.ADMIN_PASSWORD) {
-      let trainer = {
-        id: ph_num,
-        ph_num: ph_num,
-      };
       return reply.code(200).send({
         message: "Admin Login successful",
         data: {
           token: await reply.jwtSign({
-            id: trainer?.id as number,
+            id: ph_num,
             ph_num,
           }),
           ph_num,
