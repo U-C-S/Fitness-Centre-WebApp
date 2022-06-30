@@ -19,7 +19,7 @@ import {
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import useSWR from "swr";
-import { fetcher } from "../../../utils/fetcher";
+import { fetcher, userProfileFetcher } from "../../../utils/fetcher";
 
 export function QueryForm() {
 	const form = useForm({
@@ -161,7 +161,7 @@ export function TableScrollArea({ data }: TableScrollAreaProps) {
 }
 
 export default function App() {
-	const { data } = useSWR(`${process.env.API_URL}/api/trainer`, fetcher);
+	const { data } = useSWR(`${process.env.API_URL}/api/trainer`, userProfileFetcher);
 
 	return (
 		<AdminAppShell>

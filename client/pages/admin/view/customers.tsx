@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { createStyles, Table, ScrollArea, Loader } from "@mantine/core";
 import { AdminAppShell } from "../../../components/AdminAppShell";
 import useSWR from "swr";
-import { fetcher } from "../../../utils/fetcher";
+import { userProfileFetcher } from "../../../utils/fetcher";
 
 const useStyles = createStyles(theme => ({
 	header: {
@@ -77,7 +77,7 @@ export function TableScrollArea({ data }: TableScrollAreaProps) {
 }
 
 export default function App() {
-	const { data } = useSWR(process.env.API_URL + "/api/user/all", fetcher);
+	const { data } = useSWR(process.env.API_URL + "/api/user/all", userProfileFetcher);
 
 	return (
 		<AdminAppShell>

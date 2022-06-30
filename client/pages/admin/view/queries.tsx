@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { AdminAppShell } from "../../../components/AdminAppShell";
 import { createStyles, Table, Checkbox, ScrollArea, Group, Avatar, Text, Loader } from "@mantine/core";
 import useSWR from "swr";
-import { fetcher } from "../../../utils/fetcher";
+import { fetcher, userProfileFetcher } from "../../../utils/fetcher";
 
 const useStyles = createStyles(theme => ({
 	rowSelected: {
@@ -72,7 +72,7 @@ export function TableSelection({ data }: TableSelectionProps) {
 }
 
 export default function App() {
-	const { data } = useSWR(process.env.API_URL + "/api/query", fetcher);
+	const { data } = useSWR(process.env.API_URL + "/api/query", userProfileFetcher);
 	console.log(data);
 
 	return (
