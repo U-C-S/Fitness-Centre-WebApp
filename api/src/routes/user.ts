@@ -11,23 +11,39 @@ export const userRoutes: FastifyPluginCallback = (fastify, options, done) => {
     },
     async (request, reply) => {
       let id = (request.user as jwtUserPayload).id;
-      const profile = await prisma.user.findUnique({ where: { id } });
+      const profile = await prisma.user.findUnique({
+        where: { id },
+        select: {
+          id: true,
+          name: true,
+          age: true,
+          gender: true,
+          height: true,
+          weight: true,
+          ph_num: true,
+          created_at: true,
+          training_info: {
+            select: {
+              plan: true,
+              trainer: {
+                select: {
+                  name: true,
+                  explevel: true,
+                  ph_num: true,
+                },
+              },
+            },
+          },
+        },
+      });
 
       if (!profile) {
         return reply.code(404).send({ message: "Profile not found" });
       }
 
-      let { name, age, height, weight, ph_num, gender } = profile;
       reply.code(200).send({
         succes: true,
-        data: {
-          name,
-          age,
-          height,
-          weight,
-          ph_num,
-          gender,
-        },
+        data: profile,
       });
     }
   );
@@ -46,6 +62,9 @@ export const userRoutes: FastifyPluginCallback = (fastify, options, done) => {
       if (!profile) {
         return reply.code(404).send({ message: "Profile not found" });
       } else {
+        const trainersList = await prisma.trainer.findMany();
+        const randomTrainer = trainersList[Math.floor(Math.random() * trainersList.length)]; // randomize the trainer
+
         const trainInfo = await prisma.training_info.create({
           data: {
             plan: plan,
@@ -56,7 +75,7 @@ export const userRoutes: FastifyPluginCallback = (fastify, options, done) => {
             },
             trainer: {
               connect: {
-                id: 4,
+                id: randomTrainer.id,
               },
             },
           },
