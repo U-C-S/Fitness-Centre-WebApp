@@ -185,7 +185,7 @@ export function Register({ selectedPlan }: any) {
 	};
 
 	const RegistrationDone = () => {
-		Router.push(`/profile/${localStorage.getItem("ph_num")}`);
+		Router.push(`/profile`);
 	};
 
 	return (

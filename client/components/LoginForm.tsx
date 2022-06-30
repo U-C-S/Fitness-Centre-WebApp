@@ -39,7 +39,7 @@ export function LoginForm(props: adad) {
 			localStorage.setItem("user", resData.data.ph_num);
 
 			if (props.admin == false || props.admin == undefined) {
-				Router.push(`/profile/${values.ph_num}`);
+				Router.push(`/profile`);
 			} else {
 				Router.push(`/admin/view/customers`);
 			}
