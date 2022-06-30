@@ -41,7 +41,7 @@ export async function authRoutes(fastify: FastifyInstance) {
     const { ph_num, password } = request.body as any;
 
     //TODO: THIS IS HACKY. Maybe use a database
-    if (ph_num === parseInt(process.env.ADMIN_NUM as string) && password === process.env.ADMIN_PASSWORD) {
+    if (ph_num === process.env.ADMIN_NUM && password === process.env.ADMIN_PASSWORD) {
       let trainer = {
         id: ph_num,
         ph_num: ph_num,

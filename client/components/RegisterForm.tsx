@@ -23,14 +23,14 @@ import { LoginForm } from "./LoginForm";
 export function RegisterForm({ registerEventHandler }: any) {
 	const form = useForm({
 		initialValues: {
-			name: "Sup",
-			height: 170,
-			weight: 65,
-			age: 24,
+			name: "",
+			height: 0,
+			weight: 0,
+			age: 0,
 			gender: "F",
-			ph_num: 987641230,
+			ph_num: "",
 			// plan: selectedPlan,
-			password: "123456",
+			password: "",
 		},
 	});
 
@@ -85,12 +85,12 @@ export function RegisterForm({ registerEventHandler }: any) {
 					<Radio value="X" label="I don't want to disclose" />
 				</RadioGroup>
 
-				<NumberInput
+				<TextInput
 					label="Phone Number"
 					placeholder="Enter phone number (important)"
 					required
 					value={form.values.ph_num}
-					onChange={event => form.setFieldValue("ph_num", event as number)}
+					onChange={event => form.setFieldValue("ph_num", event.currentTarget.value)}
 				/>
 
 				<TextInput
