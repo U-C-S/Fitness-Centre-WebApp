@@ -19,3 +19,19 @@ DATABASE_URL = "postgres://........" # Your postgresSQL connection string, THIS 
 ADMIN_NUM = 123456 # This shall be your admin phone number or user id. Note its a number
 ADMIN_PASSWORD = "99999" # self-explantory
 ```
+
+
+```mermaid
+flowchart TD
+    B[Landing Page] --> BA[Admin]
+    BA --> BL[Admin Login] --> BD[Admin Dashboard]
+    BD --> BD1[Trainers]
+    BD --> BD2[Queries]
+    BD --> BD3[Customers]
+    B --> C[Login]
+    C --> D[User Profile]
+    B --> E[Select a plan] --> E1[Registration/Login] --> E2[Buy the plan or Payment portal] --> E3[Assignment of Trainer]
+    E3 --> D
+    B --> CON[Contact]
+    CON --> CF[Query Form]
+```
