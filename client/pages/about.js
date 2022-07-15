@@ -12,7 +12,7 @@ export default function about() {
 					<div className="row">
 						<div className="col-lg-12">
 							<div className="section-title">
-								<span>Why chose us?</span>
+								<span>Why choose us?</span>
 								<h2>PUSH YOUR LIMITS FORWARD</h2>
 							</div>
 						</div>
