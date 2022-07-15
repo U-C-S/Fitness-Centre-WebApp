@@ -132,7 +132,7 @@ export default function about() {
 						<div className="col-lg-12">
 							<div className="section-title">
 								<span>Testimonial</span>
-								<h2>Our cilent say</h2>
+								<h2>Our client say</h2>
 							</div>
 						</div>
 					</div>
@@ -145,11 +145,10 @@ export default function about() {
 									</div>
 									<div className="ti_text">
 										<p>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-											incididunt
-											<br /> ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus
-											commodo
-											<br /> viverra maecenas accumsan lacus vel facilisis.
+											Excellent personal training. Trainers who really care and go above
+											<br /> 
+											and beyond to help you achieve your goals. 
+											<br /> Small and private gym that feels more personal. Highly recommended!
 										</p>
 										<h5>Priyanka H</h5>
 										<div className="tt-rating">
@@ -171,11 +170,9 @@ export default function about() {
 									</div>
 									<div className="ti_text">
 										<p>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-											incididunt
-											<br /> ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus
-											commodo
-											<br /> viverra maecenas accumsan lacus vel facilisis.
+											Hands down, best choice I’ve made training here.
+											<br /> VERY friendly team who make me actually want to go train.
+											<br /> I look forward to walking through the doors and always feel amazing when I leave.
 										</p>
 										<h5>Ramya S</h5>
 										<div className="tt-rating">
