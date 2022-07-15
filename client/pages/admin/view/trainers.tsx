@@ -26,7 +26,7 @@ export function QueryForm() {
 		initialValues: {
 			name: "",
 			gender: "M",
-			ph_num: 0,
+			ph_num: "",
 			explevel: 1,
 		},
 	});
@@ -36,6 +36,7 @@ export function QueryForm() {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
+				"Authorization": `bearer ${localStorage.getItem("jwt")}`
 			},
 			body: JSON.stringify(values),
 		};
@@ -68,7 +69,7 @@ export function QueryForm() {
 					<Radio value="X" label="Hidden" />
 				</RadioGroup>
 				<Group>
-					<NumberInput
+					<TextInput
 						style={{ width: "230px" }}
 						label="Phone Number"
 						placeholder="Enter phone number (important)"
@@ -76,7 +77,7 @@ export function QueryForm() {
 						value={form.values.ph_num}
 						max={9999999999}
 						min={1000000000}
-						onChange={event => form.setFieldValue("ph_num", event as number)}
+						onChange={event => form.setFieldValue("ph_num", event.currentTarget.value as string)}
 					/>
 					<NumberInput
 						style={{ width: "90px" }}
