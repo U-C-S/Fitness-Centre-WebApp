@@ -197,7 +197,7 @@ export function Register({ selectedPlan }: any) {
 							Step 1: Create an account
 						</Text>
 
-						<Paper p={10} withBorder style={{ backgroundColor: "hsl(20, 1%, 21%)" }}>
+						<Paper p={10} withBorder style={{ borderWidth: "4px" }}>
 							<Group m={5} position="center">
 								<Text align="center">Already have a Account ??</Text>
 								<Button onClick={() => setLogin(true)}>Login</Button>
